@@ -3,4 +3,5 @@ language: python
     - "3.6"
     - "nightly"
     
-script: true
+script: 
+    - - "sh -e /etc/init.d/xvfb start"
