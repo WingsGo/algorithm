@@ -1,7 +1,7 @@
 language: python
-  python:
-    - "3.6"
-    - "nightly"
+
+python:
+    - "3.4"
     
 script: 
-    - - "sh -e /etc/init.d/xvfb start"
+    - true
