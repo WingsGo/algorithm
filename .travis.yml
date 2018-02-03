@@ -3,5 +3,4 @@ language: python
     - "3.6"
     - "nightly"
     
-script:
-    - true
+script: true
