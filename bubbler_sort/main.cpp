@@ -3,13 +3,6 @@
 
 using namespace std;
 
-void swap(int &lrs, int &rhs)
-{
-    int sum = lrs + rhs;
-    lrs = sum - lrs;
-    rhs = sum - rhs;
-}
-
 void bubbler(vector<int> &input)
 {
     int size = input.size();
