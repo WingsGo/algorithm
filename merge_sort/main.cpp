@@ -4,6 +4,43 @@
 
 using namespace std;
 
+// 左闭右开区间
+void merge_sorted_array(vector<int>& array, int left, int mid, int right)
+{
+    if (array.empty()) return;
+    if ((left > right) || (left > mid) || (right < mid)) return;
+
+    vector<int> tmp(right - left);
+
+    int i = left;
+    int j = mid;
+    int k = 0;
+
+    while (i < mid && j < right) {
+        if (array[i] <= array[j])
+            tmp[k++] = array[i++];
+        else
+            tmp[k++] = array[j++];
+    }
+    while (i < mid) tmp[k++] = array[i++];
+    while (j < right) tmp[k++] = array[j++];
+
+    copy(tmp.begin(), tmp.end(), array.begin() + left);
+
+}
+
+void merge_sort(vector<int>& array, int left, int right)
+{
+    if (left < right-1) {
+        int mid = left + (right - left) / 2;
+        merge_sort(array, left, mid);
+        merge_sort(array, mid, right);
+        merge_sorted_array(array, left, mid, right);
+    }
+}
+
+
+// 左闭右闭区间
 void merge_array(vector<int>& input, int left, int mid, int right)
 {
     if (input.empty())
