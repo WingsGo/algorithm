@@ -40,6 +40,38 @@ public:
     }
 };
 
+namespace WingC {
+    int upper_bound(const vector<int>& input, int target) {
+        int left = 0;
+        int right = input.size();
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (input[mid] > target)
+                right = mid;
+            else
+                left = mid + 1;
+        }
+        if (left > 1 && input[left - 1] == target)
+            return left - 1;
+        return -1;
+    }
+
+    int lowe_bound(const vector<int>& input, int target) {
+        int left = 0;
+        int right = input.size();
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (input[mid] >= target)
+                right = mid;
+            else
+                left = mid + 1;
+        }
+        if (input[left] == target)
+            return left;
+        return -1;
+    }
+}
+
 int main(int argc, char *argv[])
 {
     vector<int> a = {1, 3, 5, 6};
